@@ -113,6 +113,7 @@ mod.create_weapon = function(item_type, give_random_skin, rarity, no_skin)
 		if item.item_type == item_type
 		and item.template
 		and item.can_wield
+		and string.sub(tostring(item_key), 1, 2) ~= "vs" -- check if the item is a vs weapon
 		and pl.List(item.can_wield) -- check if the item is valid career-wise
 			:map(function(career_name) return current_career_names:contains(career_name) end)
 			:reduce('or')
